@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //task1
+        class Animal{
+            constructor(name, sound){
+                this.name = name;
+                this.sound = sound;
+            }
+            makesound() {
+                return `${this.name} says ${this.sound}`;
+            }
+        }
+
+        const animal1 = new Animal("dog" , "barks");
+        const animal2 = new Animal("cat", "meows");
+        console.log(animal1.makesound());
+        console.log(animal2.makesound());
+      
+//task2
+        class phone{
+    
+            constructor(brand, model){
+                this.brand = brand;
+                this.model = model;
+                this.battery = 100;
+            }
+              use(){
+                this.battery = this.battery - 10;
+                return `Battery: ${this.battery}%`;
+              }
+
+              charge(){
+                this.battery = this.battery;
+                 return "fully charged"
+              }
+
+        }
+        const phone1 = new phone("iphone",18);
+        console.log(phone1.use())
+        console.log(phone1.use())
+        console.log(phone1.use())
+        console.log(phone1.charge())
+
+//task3
+        class BankAccount{
+            constructor(owner, balance){
+              this.owner = owner;
+              this.balance = 2000;
+            }
+            deposit(amount){
+                this.amount= amount;
+                this.balance = this.amount + this.balance;
+                return  `Balance added: ${this.balance}`;
+            }
+            withdrawamount(amount){
+                this.amount = amount;
+                if (this.balance >= this.amount){
+                   this.balance = this.balance - this.amount;
+                   return `withdrew: ${this.amount}`;
+                } else {
+                    return "insuficient funds";
+                }
+
+            }
+            checkaccount(){
+                return `Owner: ${this.owner}  Balance: ${this.balance}`;
+            }
+        }
+
+        const owner1 = new BankAccount('DAVID', 4000);
+        console.log(owner1.checkaccount());
+        console.log(owner1.deposit(100));
+        console.log(owner1.withdrawamount(1000));
+//task4
+        class Wallet{
+            #money = 0
+         addmoney(amount){
+            this.amount = amount;
+            this.#money = this.#money + this.amount;
+         }
+         getbalance(){
+            return  `The current money is ${this.#money}`;
+         }
+         spend(amount){
+            this.amount = amount;
+            if(this.#money > this.amount){
+                this.#money = this.#money - this.amount;
+                return `Spent:${this.amount}`;
+            }else {
+                return 'not enough money';
+            }
+
+         }
+        }
+        const Wallet1 = new Wallet()
+        console.log(Wallet1.addmoney(103578));
+        console.log(Wallet1.getbalance());
+        console.log(Wallet1.spend(200))
+
+//tASK5
+        class Person{
+            #age
+            constructor(name, age){
+                this.age = age;
+                this.#age = age;
+                this.name = name;
+            }
+            ages(){
+                return `${this.age}`
+            }
+            setage(){
+                if(this.#age = 0 || this.#age <=120){
+                    return `${this.age}`;
+                }else {
+                    return 'invalid age';
+                }
+            }
+        }
+        const person1 = new Person('john', 20);
+        console.log(person1.setage())
+        const person2 = new Person('daniel',190);
+        console.log(person2.setage());
+
+//task7
+        class Email{
+            #address
+            setter(add){
+                this.#address = add;
+                if(add .includes('@')){
+                    this.#address = add;
+                    return  `${this.#address}`;
+                }else {
+                    return "invalid email";
+                }
+            }
+        }
+        const email = new Email()
+        console.log(email.setter('immy@com'));
+        console.log(email.setter('immy'));
+    //task8
+      class Vehicle {
+        constructor(brands, wheels){
+            this.brands = brands;
+            this.wheels = wheels;
+        }
+        method(){
+            return `${this.brands} has ${this.wheels} wheels`;
+        }
+
+      }
+      class car extends Vehicle{
+
+      }
+      const car1 = new car("Tesla",4);
+      console.log(car1.method())
+//task8
+
+      class Employee{
+        constructor(name, salary){
+            this.name = name;
+            this.salary = salary;
+        }
+        work(){
+            return `${this.name} is working`;
+        }
+      }
+      class manager extends Employee{
+        constructor(department , name ,salary){
+            super(name ,salary);
+            this.department = department
+        }
+        manage(){
+            return `${this.name} manages ${this.department}`;
+        }
+
+      }
+      const manager1 = new manager('sales','john');
+      console.log(manager1.work())
+      console.log(manager1.manage())
+//task9
+      class shape{
+        area(){
+              return 0;
+        }
+        name(){
+             return 'shape';
+        }
+      }
+      class circle extends shape{
+            constructor(radius){
+                super();
+                this.radius = radius;
+            }
+            area(){
+                return 3.14 * this.radius * this.radius
+            }
+            name(){
+                return 'circle';
+            }
+      }
+
+      class rectangle extends shape{
+        constructor(width, height){
+            super();
+            this.width = width;
+            this.height = height;
+        }
+        area(){
+             return this.width * this.height
+        }
+        name(){
+            return 'rectangle';
+        }
+      }
+       const circle1 = new circle(9);
+       console.log(circle1.name())
+       console.log(circle1.area())
+       const rectangle1 = new rectangle(20,30);
+       console.log(rectangle1.area());
+       console.log(rectangle1.name());
+//task10
+        class character{
+            constructor(name){
+                this.name = name;
+            }
+            attacks(){
+                return `${this.name} attacks`;
+            }
+        }
+        class warrior extends character{
+        
+            attacks(){
+                return `${this.name} swings a sword`;
+            }
+
+        }
+        class Mage extends character{
+         attacks() {
+             return `${this.name} casts a spell!`;
+         }
+        }
+
+        class Archer extends character{ 
+            attacks(){
+                 return `${this.name} shoots an arrow!`;
+            }
+        }
+        const warrior1 = new warrior('David');
+        const mage = new Mage('Joy');
+        const archer  = new Archer('Mary');
+        const arr = [warrior1,mage,archer];
+        for(const cart of arr){
+            console.log(cart.attacks());
+        }
+//task11
+       class payment{
+        constructor(amount){
+            this.amount = amount;
+        }
+        process(){
+            return `processing payment of  ${this.amount}`;
+        }
+       }
+        class CardPayment extends payment{
+            process(){
+             return `Processing card payment of ${this.amount}`;
+            }
+        }
+        class CashPayment extends payment{
+            process(){
+                return `Processing cash payment of ${this.amount}`;
+            }
+        }
+        class CryptoPayment extends payment{
+            process(){
+                return `Processing crypto payment of ${this.amount}`;
+            }
+        }
+        const card = new CardPayment(20345);
+        const cash  = new CashPayment(9000);
+        const cryptos = new CryptoPayment(2300);
+        const li = [card, cash,cryptos];
+        for(const list of li){
+            console.log(list.process());
+        }
+    //task12
+    class Notification {
+        constructor(message){
+            this.message = message;
+        }
+        send(){
+            return `Sending: ${this.message}`;
+        }
+    }
+
+    class  EmailNotification extends Notification{
+        send(){
+            return `Email Sent: ${this.message}`;
+        }
+    }
+    class SMSNotification extends Notification{
+        send(){
+            return `SMS sent: ${this.message}`;
+        }
+    }
+    class PushNotification extends Notification{
+        send(){
+            return `Push notification sent: ${this.message}`;
+        }
+    }
+
+       const email1 = new EmailNotification('i love web dev');
+       const sms = new SMSNotification('leave here now')
+       const push = new PushNotification('christophilla')
+
+       function sendAll(Notification){
+         const arr = [email1, sms ,push];
+         for(const arr1 of arr){
+            console.log(arr1.send());
+         }
+       }
+       sendAll();
+       //TASK13
+       class Account{
+        #balance
+        constructor(owner, balance){
+            this.owner =owner;
+            this.#balance = balance;
+        }
+        getter(){
+            return `Balance is: ${this.#balance}`;
+        }
+        deposit(amount){
+            this.amount = amount;
+            this.#balance = this.#balance + this.amount;
+            return `current balance ${this.#balance}`;
+        }
+        withdraw(amount){
+            this.amount = amount;
+            if(this.#balance >=this.amount){
+                this.#balance = this.#balance - this.amount;
+                  return ` Balance: ${this.#balance}`;
+            }else {
+                return 'not enough'
+            }
+        }
+       }
+       class savingsAccount extends Account{
+        constructor(owner,balance,interestrate){
+            super(owner,balance);
+            this.interestrate = interestrate;
+        }
+        addinterest(){
+         const interest = this.balance * this.interestrate / 100;
+           this.deposit(interest);
+          return `Interest added: ${interest}`;
+ 
+        }
+       }
+       const saving = new savingsAccount('immy',90000000000,2);
+       console.log(saving.deposit(1903456556));
+       console.log(saving.withdraw(950000));
+       console.log(saving.addinterest());
+       //task14
+        class Media {
+            constructor(title) {
+                this.title = title;
+            }
+
+            play() {
+                return `Playing: ${this.title}`;
+            }
+        }
+        class Song extends Media {
+            play() {
+                return `Playing song: ${this.title}`;
+            }
+        }
+        class Video extends Media {
+            play() {
+                return `Playing video: ${this.title}`;
+            }
+        }
+        class Podcast extends Media {
+            play() {
+                return `Playing podcast: ${this.title}`;
+            }
+        }
+        const item1 = new Song("Perfect");
+        const item2 = new Video("JavaScript Tutorial");
+        const item3 = new Podcast("Tech Talk");
+        const item4 = new Song("Love Story");
+
+        const mediaItems = [item1, item2, item3, item4];
+
+        for (const item of mediaItems) {
+            console.log(item.play());
+        }
+        //task15
+        class user{
+            #password
+            constructor(username, password){
+                this.username = username;
+                this.#password = password;
+            }
+            login(inputpassword){
+              if (this.#password === inputpassword){
+                return 'login sucessful';
+              } else {
+                return 'wrong password';
+              }
+            }
+            setter(newpassword){
+                this.#password = newpassword;
+                return `password changed: ${this.#password}`;
+
+            }
+        }
+        class Admin extends user{
+            login(){
+                return 'login successful'
+            }
+        }
+        class Guest extends user{
+            login(){
+                return 'Guest access granted'
+            }
+        }
+        const admin = new Admin('immy',1234)
+        console.log(admin.login(1235));
+        console.log(admin.setter(3855));
+        const guest = new Guest('Eve', 9999);
+        console.log(guest.login());
+        console.log(guest.setter(9988));
+        //task16
+        class Product{
+            #stock
+            constructor(name,price,stock){
+               this.name = name;
+               this.price = price;
+               this.#stock = stock; 
+            }
+
+            getter(){
+                return `${this.#stock}`;
+            }
+        sell(quantity){
+            this.quantity = quantity;
+            if(this.#stock > this.quantity){
+               this.#stock = this.#stock - this.quantity;
+              return `Sold: ${this.quantity} ${this.name}`;
+            } else{
+                return 'not enough stock';
+            }
+        }
+        restock(quantity){
+            this.#stock = this.#stock + this.quantity;
+            return `${this.#stock}`;
+        }
+        }
+        class Electronics extends Product{
+            constructor(name, price, stock, warranty){
+                super();
+                this.warranty = warranty;
+            }
+            sell(quantity){
+               
+            this.quantity = quantity;
+            if(this.stock < this.quantity){
+               this.stock = this.stock - this.quantity;
+              return `Sold: ${this.quantity} ${this.warranty}`;
+            } else{
+                return 'not enough stock';
+            }
+
+            }
+        }
+        class clothing extends Product{
+            constructor(name, price, stock, warranty, size){
+                super();
+                this.size  = size;
+            }
+            sell(quantity){
+ 
+              this.quantity = quantity;
+            if(this.stock > this.quantity){
+               this.stock = this.stock - this.quantity;
+              return `Sold: ${this.quantity} ${this.size}`;
+            } else{
+                return 'not enough stock';
+            }
+
+            }
+        }
+
+       const elect = new Electronics('fan',3000,7);
+       const cloth = new clothing('shirt',4000,10);
+       console.log(elect.sell(4));
+       console.log(cloth.sell(9));
+       console.log(cloth.restock(5));
+       console.log(elect.restock(7))
+    </script>
+</body>
+</html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes</title>
+</head>
+<body>
+    <script>
+        class Accountholder{
+            #balance = 0;
+            constructor (name, age ,pin){
+                 this.name = name;
+                 this.age = age;
+                 this.pin = pin;
+            }
+
+            getinfo(pin){
+                if(pin != this.pin){
+                    console.log('Incorrect pin')
+                } else {
+                    console.log('Name : ${this.name} Age: ${this.age} balance: ${this.#balance}')
+                }
+            }
+        }
+    </script>
+</body>
+</html>
