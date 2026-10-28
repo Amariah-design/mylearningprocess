@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //task 1
+        let cars = ['toyota' ,'Benz' ,'ford'];
+        console.log(cars.length);
+        //task 2
+        cars.push("Tesla");
+        cars = [...cars, 'BMW'];
+        console.log(cars);
+         //task 3
+        console.log(cars[0]);
+        console.log(cars[2]);
+        console.log(cars[4]);
+        // task 4
+        cars[1] = 'mercedes';
+        console.log(cars)
+        //task 5
+        cars.splice(2, 1);
+        cars.splice(0, 1);
+        console.log(cars);
+        //task6
+        cars = [...cars, 'GlE', 'G-Wagon', 'CYBERTRUCK'];
+        cars.pop();
+        console.log(cars)
+        //task7
+        const phone = {
+            brand: "Samsung",
+
+            model: "Galaxy S24",
+
+            price: 800,
+
+            color: "black",
+
+        }
+        console.log(phone);
+        //task8
+        console.log(phone.brand)
+        console.log(phone['model']);
+        console.log(phone.price);
+        //tasks9
+        phone["battery life"] = "20 hours";
+        console.log(phone['battery life']);
+        console.log(phone);
+        //task10
+        phone.price = 750;
+        phone.color = 'white';
+        //task 11
+        phone.storage = '256GB'
+        phone.haswarranty = 'true';
+        console.log(phone);
+        
+
+        //task12
+        delete phone.color;
+        delete phone.haswarranty;
+        //task13
+        const employees = [
+            {
+                name: 'John',
+                position: 'manager',
+                salary: 300
+            },
+            {
+                name: 'mark',
+                position: 'sales rep',
+                salary: 200
+            },
+
+            {
+                name: 'peter',
+                position: 'markerter',
+                salary: 250
+            }
+        ]
+        console.log(employees);
+        console.log(employees[1].name);
+        console.log(employees[2].salary);
+        //task14
+        let schools = [
+              {
+                schoolName: 'dch academy',
+                location: "karu abuja",
+                students: ['MARK','JUDE','PETER']
+            },
+            {
+                schoolName: 'bAT academy',
+                location: "nyanya abuja",
+                students: ['jOHN','MARY','JOY','JAMES']  
+            }
+        ]
+        console.log(schools[0].schoolName);
+        console.log(schools[0].students[1]);
+        console.log(schools[1].students[3]);
+        //task15
+        const playlists = {
+            name: "My Favorites",
+            songs: ['unethical', 'juna','fun','tea'],
+            owner: "David",
+        }
+        console.log(playlists);
+        console.log(playlists.songs[1]);
+        console.log(playlists.songs.length);
+      //task16
+      let resturant = {
+        name: "Tasty Bites",
+        location: "Lagos",
+        menu:[
+            {
+               Dish: 'rice',
+               price: 500 
+            },
+            {
+               Dish: 'Beans',
+               price: 300 
+            },
+            {
+               Dish: 'Yam',
+               price: 200 
+            },
+        ]
+    }
+    console.log(resturant.name);
+    console.log(resturant.menu[0].price);
+    console.log(resturant.menu[2].Dish);
+    console.log(resturant.menu.length);
+    
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

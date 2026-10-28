@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body id="body">
+    <fieldset class="border border-gray-300 rounded-lg mx-6 mb-5 w-150 mt-6">
+        <form class="mx-4 mt-1.5 px-6">
+        <label>Change colour</label>
+        <br/>
+        <input type="text" id="bgcolor" class="border px-2 py-2"/>
+        <br/>
+        <br/>
+        <button id="btn" class="border px-2 py-2 rounded-[10px]" type="button">Change</button>
+        <br/>
+        <br/>
+
+        <label id="tim">Change name</label>
+        <br/>
+        <br/>
+        <button id="btn1" class="border px-2 py-2 rounded-[10px]" type="button">Change</button>
+        <br/>
+        <br/>
+
+
+        <label id="tim1">Change font</label>
+        <br/>
+        <br/>
+        <button id="btn2" class="border px-2 py-2 rounded-[10px]" type="button">Change</button>
+        <br/>
+        <br/>
+        </form>
+    </fieldset>
+    <script>
+     const body = document.getElementById('body');
+     const bgcolor = document.getElementById('bgcolor');
+     const btn = document.getElementById('btn');
+     const tim = document.getElementById('tim');
+     const btn1 = document.getElementById('btn1');
+     const tim2 = document.getElementById('tim1');
+     const btn2 = document.getElementById('btn2');
+
+     btn.addEventListener('click' , function(){
+        const valueinput = bgcolor.value;
+        body.style.backgroundColor = valueinput;
+        // body.className = 'bg-[' + valueinput + ']';
+     });
+     const names = ['Amariah','Immaculate','Progress','javascript','Randomnames'];
+
+     btn1.addEventListener('click', function(){
+        const randomNumber = Math.floor(Math.random()*names.length);
+        tim.textContent = names[randomNumber];
+     }
+    );
+     const fonts = ['Arial',"Geogia",'Verdana','Courier New','Times New Roman'];
+
+    btn2.addEventListener('click', function(){
+       const randomNumber = Math.floor(Math.random()*fonts.length);
+       tim1.style.fontFamily = fonts[randomNumber];
+    })
+    </script>
+</body>
+</html>

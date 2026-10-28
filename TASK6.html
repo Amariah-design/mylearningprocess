@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //task9
+        for(let i = 1; i<=10; i++){
+            if(i == 6){
+                break;
+            }
+            console.log(i)
+        }
+        //task10
+        for(let i = 1;i<=7;i++){
+            if(i==4){
+                continue;
+            }
+            console.log(i)
+        }
+        //task11
+        function greetings(sayhello){
+            console.log(sayhello)
+        }
+        greetings('Hello World');
+        greetings('Hello World');
+        greetings('Hello World');
+        //task12
+        function favouritefood(food){
+            console.log('i love eating ' + food)
+        }
+        favouritefood('pizza');
+        favouritefood('ice cream');
+        //task13
+        function welcome(user='guest'){
+            console.log('welcome ' + user)
+        }
+        welcome();
+        welcome('david');
+        //task14
+        function rectangle(width, height){
+            console.log('the area is ' + [width* height])
+        }
+        rectangle(5, 3)
+        //task15
+        function counttofive(){
+            for(let i = 1;i<=10; i++){
+                if(i==5){
+                    break;
+                }
+                 console.log(i);
+            }
+        }
+            counttofive();
+        //task16
+        function skipthree(){
+            for(let i = 1;i<=6;i++){
+                if(i==3){
+                    continue;
+                }
+                console.log(i)
+            }
+        }
+        skipthree()
+        //bonus
+        function multiplytable(num){
+            for(let i = 1; i<=5; i++){
+                console.log(num*i);
+            }
+        }
+        multiplytable(4);
+
+    </script>
+</body>
+</html>
