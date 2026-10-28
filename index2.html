@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM manipulation</title>
+     <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <style>
+        .highlight{
+            background-color: yellow;
+            font-weight: bold;
+        }
+      
+
+    </style>
+</head>
+<body id="body" class="colos">
+    <h1 id="title">My App</h1>
+
+    <p class="description">Welcome!</p>
+
+    <button id="changeBtn">Change</button>
+    <button id="greetbtn">Greet</button>
+    <button id="doubleBtn">Double </button>
+    <br/>
+    <br/>
+    <button id="toggleBtn">Click Here</button>
+    <p id="status">Status Off</p>
+     
+    <ul id="colorlist"></ul>
+    <br/>
+    <br/>
+
+    <input type="text" id="taskinput">
+    <button id="addtaskbtn">Add</button>
+    <ul id="tasklist"></ul>
+    <button id="clearBtn">Clear All</button>
+    <br/>
+    
+    <input type="text" id="nameinput">
+    
+    <p id="live">You typed</p>
+   <br/>
+
+   <div id="box">I am a box</div>
+   <button id="toggleclass" class="highlight">Toggle Style</button>
+   <br/>
+   <br/>
+   <button id="darkbtn">Dark Mode</button>
+   <button id="lightbtn">Light Mode</button>
+   <br/>
+   <input type="text" id="noteInput">
+    <button id ="savebtn">Save Note</button>
+    <br/>
+    <br/>
+    <input id ="todoInput" type="text">
+    <button id="addTodoBtn">Add</button>
+    <ul id="todoList"></ul>
+
+    <script>
+        //task1
+        const title = document.getElementById('title')
+        const well = document.querySelector('.description');
+        const change = document.getElementById('changeBtn')
+        console.log(title);
+        console.log(well);
+        console.log(change);
+       //task2
+        title.textContent = "updated title";
+        well.textContent = "This is the new text";
+        //task3
+        title.style.color = 'blue';
+        title.style.fontSize = '40px';
+        title.style.backgroundColor = 'yellow';
+
+       ///task4
+        const greet = document.getElementById('greetbtn');
+        greet.addEventListener('click', function(){
+            greet.textContent = "Hello there!"
+        })
+        //task5
+        const double = document.getElementById('doubleBtn');
+        double.addEventListener('click', function(){
+            double.textContent = "First";
+
+        double.onclick = function(){
+            double.textContent = "Second";
+        }
+    })
+         //task6
+        const toggleBtn = document.getElementById("toggleBtn");
+        const status = document.getElementById("status");
+
+        toggleBtn.addEventListener("click", function() {
+            if (status.textContent === "Status: OFF") {
+            status.textContent = "Status: ON";
+            } else {
+            status.textContent = "Status: OFF";
+            }
+        });
+        //task7
+         let lists = ["red", "blue", "green", "yellow"];
+         const colorlist = document.getElementById('colorlist');
+         for(let i = 0;i < lists.length; i++){
+            const listel = document.createElement('li');
+            listel.textContent = lists[i];
+            colorlist.appendChild(listel);
+         }
+
+         //task 8
+          let list = ["red", "blue", "green", "yellow"];
+        const taskinput = document.getElementById('taskinput');
+        const addtaskbtn = document.getElementById('addtaskbtn');
+        const tasklist = document.getElementById('tasklist');
+        const clearBtn = document.getElementById('clearBtn');
+
+      addtaskbtn.addEventListener('click', function(){
+          let valueinput = taskinput.value;
+          list.push(valueinput);
+          //task9
+        clearBtn.addEventListener('click', function(){
+            tasklist.innerHTML = "";
+        })
+      
+        for(let i=0;i<list.length;i++){
+          const colorel = document.createElement('li');
+           colorel.textContent = list[i];
+           tasklist.appendChild(colorel);
+
+          taskinput.value = "";
+        }
+      })
+     //task10
+        taskinput.onkeydown = function(){
+            if(event.key=='Enter'){
+            const valueinput = taskinput.value;
+            list.push(valueinput);
+            tasklist.innerHTML = "";
+
+               for(let i=0;i<list.length;i++){
+          const colorel = document.createElement('li');
+           colorel.textContent = list[i];
+           tasklist.appendChild(colorel);
+
+          taskinput.value = "";
+            
+            }
+        }
+    }
+  //task11
+         const nameinput = document.getElementById('nameinput');
+         const live = document.getElementById('live');
+         nameinput.onkeyup = function(){
+            const valueinput = nameinput.value;
+            live.textContent = 'You typed  ' + valueinput;
+         }
+    //task12
+    const box = document.getElementById('box');
+    const toggleclass = document.getElementById('toggleclass');
+    const highlight = document.getElementsByClassName('highlight');
+    toggleclass.onclick = function(){
+        toggleclass.classList.toggle("highlight");
+    }
+    //task13
+    const lightbtn = document.getElementById('lightbtn');
+    const darkbtn = document.getElementById('darkbtn');
+    const body = document.getElementById('body');
+    darkbtn.addEventListener('click', function(){
+      body.style.backgroundColor = 'black';
+      body.style.color = "white";
+    })
+    lightbtn.onclick = function(){
+        body.style.backgroundColor = "white";
+        body.style.color = 'black';
+    }
+//task14
+    let noteInput = document.getElementById('noteInput');
+ 
+    const savebtn = document.getElementById('savebtn');
+    savebtn.addEventListener('click',function(){
+        localStorage.setItem('save',noteInput.value);
+        console.log('saved');
+    })
+        const note = localStorage.getItem('save');
+     if(note != null){
+       noteInput.value = note;
+    }
+    //task16
+        let lit = ['sweep','wash'];
+        const todoList = document.getElementById('todoList');
+        let savedtodo = localStorage.getItem("todos");
+        if (savedtodo != null){
+            lit = JSON.parse(savedtodo);
+        }
+        for (let i = 0; i < lit.length; i++){
+        let listsel = document.createElement('li');
+        listsel.textContent = lit[i];
+        todoList.appendChild(listsel);
+        }
+        const todo = document.getElementById('todoInput');
+        const addtodo = document.getElementById('addTodoBtn');
+        addtodo.onclick = function(){
+            const valueinput = todo.value;
+            lit.push(valueinput);
+             todoList.innerHTML = "";
+            for (let i = 0; i < lit.length; i++){
+        let listsel = document.createElement('li');
+        listsel.textContent = lit[i];
+        todoList.appendChild(listsel);
+                }
+            todo.value = "";
+            localStorage.setItem('todos',JSON.stringify(lit));
+        }
+
+        todo.onkeydown = function(){
+            if(event.key == 'Enter'){
+              const valueinput = todo.value;
+            lit.push(valueinput);
+
+             todoList.innerHTML = "";
+
+            for (let i = 0; i < lit.length; i++){
+        let listsel = document.createElement('li');
+        listsel.textContent = lit[i];
+        todoList.appendChild(listsel);
+                }
+                todo.value = "";
+                localStorage.setItem('todos',JSON.stringify(lit));
+            }
+        }
+    </script>
+</body>
+</html>

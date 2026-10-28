@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>javascript</title>
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.9.0/fonts/remixicon.css" rel="stylesheet" />
+</head>
+<!-- <body id="body">
+     
+   <button id="ltbtn"><i class="ri-sun-line">light</i></button>
+   <button id="dkbtn"><i class="ri-sun-fill">Dark</i></button>
+   <p>List of football clubs</p>
+   <ul id="team"></ul> -->
+   <br/>
+   <br/>
+   <br/>
+    <p>List of fruits</p>
+   <ol id="lifruit"></ol>
+   <input type="text" id="fruitadd" placeholder="Enter a fruit">
+   <button id="addbtn">Add</button>
+
+
+    <script>
+    //   const ltbtn = document.getElementById('ltbtn');
+    // //   const ltbtn = document.querySelector('#ltbtn');
+    //   const dkbtn = document.getElementById('dkbtn');
+    //   const body = document.getElementById("body");
+
+    //   ltbtn.addEventListener("click", function(){
+    //     body.style.backgroundColor = 'white';
+    //     body.style.color = 'black';
+    //   })
+
+    //   dkbtn.addEventListener("click", function(){
+
+       
+    //     body.style.backgroundColor = 'black';
+    //     body.style.color = 'white';
+    //   })
+    
+    //    const football = ['chelsea', 'man u', 'mancity','psg'];
+    //    const tem = document.getElementById('team');
+    //    for(let i = 0 ; i< football.length;i++){
+    //     const element = document.createElement('li');
+    //     element.textContent = football[i];
+    //     tem.appendChild(element);
+
+        let listfruits = ['banana','mango'];
+        const store = localStorage.getItem('fruits');
+        if(store != null){
+            listfruits= JSON.parse(store);
+
+        }
+        const listfruitsparents = document.getElementById('lifruit'); 
+        for (let i = 0; i < listfruits.length; i++){
+             const fruitelement = document.createElement('li');
+             fruitelement.textContent = listfruits[i];
+             listfruitsparents.appendChild(fruitelement);
+             
+
+        }
+        const fruitinput = document.getElementById('fruitadd');
+        const addbtn = document.getElementById('addbtn');
+        addbtn.onclick = function (){
+            const valueinput = fruitinput.value;
+            listfruits.push(valueinput);
+
+            listfruitsparents.innerHTML = " ";
+
+            for (let i = 0; i < listfruits.length; i++){
+            const fruitelement = document.createElement('li');
+             fruitelement.textContent = listfruits[i];
+             listfruitsparents.appendChild(fruitelement);
+            }
+           
+            fruitinput.value = "";
+            localStorage.setItem("fruits",JSON.stringify(listfruits));
+        };
+
+        fruitinput.onkeydown = function(){
+            if(event.key == "Enter"){
+                const valueinput = fruitinput.value;
+                listfruits.push(valueinput);
+
+                listfruitsparents.innerHTML = "";
+
+            for (let i = 0; i <listfruits.length;i++){
+               const fruitelement = document.createElement('li');
+             fruitelement.textContent = listfruits[i];
+             listfruitsparents.appendChild(fruitelement);   
+            }
+
+            fruitinput.value = "";
+
+            localStorage.setItem("friuts",JSON.stringify(listfruits));
+
+            
+            }
+        }
+
+
+    </script>
+</body>
+</html>
